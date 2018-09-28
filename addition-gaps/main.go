@@ -20,16 +20,20 @@ func Top(
 	// For this example, we have 3 arguments: two operands to add
 	// together and an address in shared memory where the FPGA will
 	// store the output.
-  // YOUR CODE: declare the first operand here
+	// YOUR CODE: declare the first operand here
+	firstNumber uint32,
 	// YOUR CODE: declare the second operand here
+	secondNumber uint32,
 	// YOUR CODE: declare the memory address for the FPGA to store the result
+	addr uintptr,
 
 	// Set up port for writing to shared memory
 	writeReq chan<- smi.Flit64,
-	writeResp <-chan smi.Flit64)
+	writeResp <-chan smi.Flit64) {
 
 	// Add the two input integers together
 	// YOUR CODE: Perform the addition here using the Add function
+	val := firstNumber + secondNumber
 
 	// Write the result of the addition to the shared memory address provided by the host
 	smi.WriteUInt32(
